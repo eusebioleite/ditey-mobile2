@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     public static String txtboxTexts="[{\"id\":0,\"title\":\"error\",\"content\":\"error\"}]";
     public static String PATH;
     public static String TITLETEXT, BOXTEXT;
-    public static boolean LAST=false;
     boolean ttsStop;
     ImageButton btnPlay, btnStop;
     TextToSpeech mTTS;
