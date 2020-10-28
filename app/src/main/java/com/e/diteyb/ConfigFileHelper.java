@@ -93,9 +93,6 @@ public class ConfigFileHelper{
             jsonFile.put("voicespeed", "1");
             jsonFile.put("voicepaused", "1");
             jsonFile.put("checked", "false");
-            jsonFile.put("title","");
-            jsonFile.put("box","");
-            jsonFile.put("last","false");
 
             File file = new File(path,"config");
             fileWriter = new FileWriter(file);

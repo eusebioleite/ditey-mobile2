@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     Menu mMenu;
     MenuItem mItem;
     final ConfigFileHelper configFileHelper = new ConfigFileHelper();
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -49,9 +50,6 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.action_login){
-            if(VolleySingleton.LOGADO)item.setTitle("sair");
-        }
         switch (item.getItemId()){
             case R.id.action_settings:
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
@@ -119,14 +117,8 @@ public class MainActivity extends AppCompatActivity {
         try {
             configFileHelper.createConfigFile(PATH);
             configFileHelper.readConfigFile(PATH);
-            String t = configFileHelper.getJsonText("title", PATH),
-                    b = configFileHelper.getJsonText("box", PATH);
-            edtMainTitle.setText(t);
-            edtMainEditText.setText(b);
-        } catch (NullPointerException npe) {
-            edtMainTitle.setText("sem permissão");
-            edtMainEditText.setText("clique aqui para permitir o acesso ao armazenamento," +
-                    "utilizamos essa permissão para salvar suas configurações");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
             mTTS = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
                 @Override
@@ -190,7 +182,6 @@ public class MainActivity extends AppCompatActivity {
                             Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                         String title = edtMainTitle.getText().toString();
                         TITLETEXT = title;
-                        configFileHelper.writeString("title", title, PATH);
                     } else {
                         requestStoragePermission();
                     }
@@ -222,7 +213,6 @@ public class MainActivity extends AppCompatActivity {
                             Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                         String box = edtMainEditText.getText().toString();
                         BOXTEXT = box;
-                        configFileHelper.writeString("box", box, PATH);
                     } else {
                         requestStoragePermission();
                     }
@@ -312,16 +302,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mTTS != null){
+        if (mTTS != null) {
             mTTS.stop();
             mTTS.shutdown();
-            if(edtMainEditText.getText().length() != 0) {
-                configFileHelper.writeString("box", BOXTEXT, PATH);
-                configFileHelper.writeString("title", TITLETEXT, PATH);
-                configFileHelper.writeString("last", "true", PATH);
-            } else{
-                configFileHelper.writeString("last", "false", PATH);
-            }
         }
     }
     private void requestStoragePermission() {

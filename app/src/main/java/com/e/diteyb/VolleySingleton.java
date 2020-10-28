@@ -1,6 +1,7 @@
 package com.e.diteyb;
 import android.app.Application;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -60,8 +61,10 @@ public class VolleySingleton extends Application {
                 Log.d("response ", response.toString());
                 try {
                     key = response.getString("accessToken");
+                    Toast.makeText(getApplicationContext(), "Registrado com sucesso", Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Falha ao se registrar", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {

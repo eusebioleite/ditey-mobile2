@@ -127,7 +127,7 @@ public String getTitles(int index) throws JSONException {
                             MainActivity.TITLETEXT = t;
                             MainActivity.BOXTEXT= s;
                             TEXT_CHANGED = true;
-                            finish();
+                        Toast.makeText(getApplicationContext(), "Texto trocado com sucesso", Toast.LENGTH_SHORT).show();
                             break;
 
                     case R.id.btn_txt2:
@@ -136,7 +136,7 @@ public String getTitles(int index) throws JSONException {
                         MainActivity.TITLETEXT = t2;
                         MainActivity.BOXTEXT= s2;
                         TEXT_CHANGED = true;
-                        finish();
+                        Toast.makeText(getApplicationContext(), "Texto trocado com sucesso", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.btn_txt3:
@@ -145,7 +145,7 @@ public String getTitles(int index) throws JSONException {
                         MainActivity.TITLETEXT = t3;
                         MainActivity.BOXTEXT= s3;
                         TEXT_CHANGED = true;
-                        finish();
+                        Toast.makeText(getApplicationContext(), "Texto trocado com sucesso", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.btn_txt4:
@@ -154,7 +154,7 @@ public String getTitles(int index) throws JSONException {
                         MainActivity.TITLETEXT = t4;
                         MainActivity.BOXTEXT= s4;
                         TEXT_CHANGED = true;
-                        finish();
+                        Toast.makeText(getApplicationContext(), "Texto trocado com sucesso", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.btn_txt5:
@@ -163,7 +163,7 @@ public String getTitles(int index) throws JSONException {
                         MainActivity.TITLETEXT = t5;
                         MainActivity.BOXTEXT= s5;
                         TEXT_CHANGED = true;
-                        finish();
+                        Toast.makeText(getApplicationContext(), "Texto trocado com sucesso", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 }catch (Exception e){e.printStackTrace();}

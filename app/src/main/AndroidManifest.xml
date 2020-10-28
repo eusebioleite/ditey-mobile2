@@ -9,18 +9,18 @@
         android:name=".VolleySingleton"
         android:allowBackup="true"
         android:icon="@drawable/ditey_logo_dark"
-        android:label="⠀⠀⠀"
+        android:label="Ditey"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="⠀⠀⠀"
+            android:label="Main"
             android:theme="@style/AppTheme">
         </activity>
         <activity
             android:name=".SplashScreen"
-            android:label="⠀⠀⠀"
+            android:label="Ditey"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,19 +30,19 @@
         </activity>
         <activity
             android:name=".SettingsActivity"
-            android:label="⠀⠀⠀"
+            android:label="Configurações"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".SavedTextsActivity"
-            android:label="⠀⠀⠀"
+            android:label="Textos Salvos"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".LoginActivity"
-            android:label="⠀⠀⠀"
+            android:label="Login"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".RegisterActivity"
-            android:label="⠀⠀⠀"
+            android:label="Registrar"
             android:theme="@style/AppTheme" />
     </application>
 
