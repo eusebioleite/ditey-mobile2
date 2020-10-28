@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1" />
+
+    <TextView
+        android:id="@+id/title1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Título"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_txt1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".3"
+        android:background="@drawable/shape_text_buttons"
+        android:ems="10"
+        android:fontFamily="sans-serif-light"
+        android:gravity="start"
+        android:hint="Seu texto aqui."
+        android:shadowRadius="2"
+        android:textAllCaps="false"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="15sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1" />
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Título"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_txt2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".3"
+        android:background="@drawable/shape_text_buttons"
+        android:ems="10"
+        android:fontFamily="sans-serif-light"
+        android:gravity="start"
+        android:textAllCaps="false"
+        android:shadowRadius="2"
+        android:hint="Seu texto aqui."
+        android:textColorHint="@color/colorAccent"
+        android:textSize="15sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1" />
+
+    <TextView
+        android:id="@+id/title3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Título"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_txt3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".3"
+        android:background="@drawable/shape_text_buttons"
+        android:ems="10"
+        android:fontFamily="sans-serif-light"
+        android:shadowRadius="2"
+        android:gravity="start"
+        android:hint="Seu texto aqui."
+        android:textColorHint="@color/colorAccent"
+        android:textAllCaps="false"
+        android:textSize="15sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1" />
+
+    <TextView
+        android:id="@+id/title4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Título"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_txt4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".3"
+        android:background="@drawable/shape_text_buttons"
+        android:ems="10"
+        android:fontFamily="sans-serif-light"
+        android:gravity="start"
+        android:hint="Seu texto aqui."
+        android:shadowRadius="2"
+        android:textColorHint="@color/colorAccent"
+        android:textAllCaps="false"
+        android:textSize="15sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1" />
+
+    <TextView
+        android:id="@+id/title5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Título"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_txt5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".3"
+        android:background="@drawable/shape_text_buttons"
+        android:ems="10"
+        android:shadowRadius="2"
+        android:fontFamily="sans-serif-light"
+        android:gravity="start"
+        android:hint="Seu texto aqui."
+        android:textColorHint="@color/colorAccent"
+        android:textAllCaps="false"
+        android:textSize="15sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1" />
+</LinearLayout>

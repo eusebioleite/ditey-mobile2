@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.e.diteyb.MainActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Configurações"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_login"
+        android:orderInCategory="100"
+        android:title="Entrar"
+        app:showAsAction="never" />
+    <item
+    android:id="@+id/action_saved_texts"
+    android:orderInCategory="100"
+    android:title="Textos Salvos"
+    app:showAsAction="never" />
+    <item
+    android:id="@+id/action_voice_commands"
+    android:orderInCategory="100"
+    android:title="Comandos de Voz"
+    app:showAsAction="never" />
+</menu>
