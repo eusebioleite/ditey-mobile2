@@ -41,7 +41,7 @@ A opção modo noturno deixa o aplicativo escuro.
 ![Config](img/Screenshot_5.png)
 
 # Entrar
-Digite seu email e sua senha para entrar na sua conta, ao entrar no aplicativo você encontrará essa conta de testes.
+Digite seu email e sua senha para entrar na sua conta, ao abrir a tela você encontrará essa conta de testes.
 
 ![Entrar](img/Screenshot_3.png)
 
@@ -58,4 +58,4 @@ Após entrar com sucesso, você pode acessar a tela de textos salvos:
 ![TextosSalvos](img/Screenshot_6.png)
 
 # Comandos de voz
-Essa opção ainda não está disponível para o aplicativo mobile e se encontra funcionando apenas no [site](https://ditey.vercel.app/)
+Essa opção ainda não está disponível para o aplicativo mobile e se encontra funcionando apenas no [site](https://ditey.vercel.app/).
