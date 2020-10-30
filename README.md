@@ -14,7 +14,10 @@ Algumas funções contidas no [site](https://ditey.vercel.app/) do Ditey não po
 O aplicativo só funciona em dispositivos com Android 8.0 ou superior.
 
 # Instalação
-baixe o arquivo `ditey.apk` e instale em seu dispositivo móvel ou emulador.
+Baixe o arquivo `ditey.apk` e instale em seu dispositivo móvel ou emulador.
+
+# Instalação(modo de desenvolvimento)
+Baixe o projeto e abra a pasta no [Android Studio](https://developer.android.com/studio?gclid=CjwKCAjw8-78BRA0EiwAFUw8LLzQucdP0toq-1LxUPg3W-MayBJbOLnIKIw8BkfcA6KB57osqqfoqhoCcE0QAvD_BwE&gclsrc=aw.ds).
 
 
 # Como usar
