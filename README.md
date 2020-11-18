@@ -6,12 +6,13 @@ O Ditey permite que o usuário mantenha seus textos salvos no banco de dados, e 
 # Tecnologias
 - Java
 - Android SDK
-- [Volley](https://github.com/google/volley)
 
 # Observações
 Algumas funções contidas no [site](https://ditey.vercel.app/) do Ditey não podem ser encontradas na versão mobile.
 
 O aplicativo só funciona em dispositivos com Android 8.0 ou superior.
+
+O aplicativo não funciona no Android 8.1
 
 # Instalação
 Baixe o arquivo `ditey.apk` e instale em seu dispositivo móvel ou emulador.
