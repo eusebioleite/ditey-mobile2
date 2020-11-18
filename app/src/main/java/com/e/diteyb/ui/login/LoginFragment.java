@@ -56,7 +56,6 @@ EditText edtEmail, edtPassword;
                                 }
                             })
                             .create().show();
-                }else{
                     btnLogin.setEnabled(true);
                 }
             }

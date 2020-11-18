@@ -35,6 +35,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.e.diteyb.ui.main.MainViewModel;
+import com.e.diteyb.ui.register.RegisterViewModel;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -51,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
     public static String PATH;
     public static int TEXT_SELECTED_ID;
     public static String TITLETEXT, BOXTEXT;
-    boolean ttsStop, buttonChecked,isCollapsed;
-    TextToSpeech mTTS;
-    private MainViewModel mainViewModel;
+    boolean ttsStop, buttonChecked,isCollapsed,firstTimeDrawer = true;
     boolean firstTime = true;
     boolean tb1selected,tb2selected,tb3selected,tb4selected,tb5selected;
+    TextToSpeech mTTS;
+    private MainViewModel mainViewModel;
     ImageButton btnPlay, btnStop, btnSettings,toggleButton;
     ImageView drawerLoginIcon;
     Button tb1,tb2,tb3,tb4,tb5,drawerLogin;
@@ -137,7 +138,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
             btnPlay.setVisibility(View.GONE);
             btnStop.setVisibility(View.GONE);
             btnSettings.setVisibility(View.GONE);
@@ -180,7 +180,8 @@ public class MainActivity extends AppCompatActivity {
                             .make(drawer, "você não fez login!", Snackbar.LENGTH_LONG);
                     snackbar.show();
                 }
-                if (VolleySingleton.LOGADO) {
+
+                if (VolleySingleton.LOGADO || firstTimeDrawer) {
                     try {
                         drawername.setText(VolleySingleton.USER_NAME);
                         drawerEmail.setText(VolleySingleton.USER_EMAIL);
@@ -207,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                    firstTimeDrawer = false;
                 }
                 try {
                     if (tb1selected) {

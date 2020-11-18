@@ -2,6 +2,7 @@ package com.e.diteyb;
 import android.app.Application;
 import android.util.Log;
 
+import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -15,6 +16,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.e.diteyb.ui.login.LoginViewModel;
+import com.e.diteyb.ui.main.MainViewModel;
 import com.e.diteyb.ui.register.RegisterViewModel;
 
 import org.json.JSONArray;
@@ -68,7 +70,7 @@ public class VolleySingleton extends Application {
                 Log.d("response ", response.toString());
                 NavController navController =
                         Navigation.findNavController(MainActivity.MAIN_ACTIVITY_INSTANCE, R.id.nav_host_fragment);
-                navController.navigate(R.id.action_nav_register_to_nav_main);
+                navController.navigate(R.id.action_nav_register_to_nav_login);
                 try {
                     BEARER_KEY = response.getString("accessToken");
                 } catch (JSONException e) {
@@ -114,6 +116,14 @@ public class VolleySingleton extends Application {
             public void onResponse(JSONArray response) {
                     Log.d("response ", response.toString());
                     MainActivity.txtboxTexts = response.toString();
+                MainViewModel mainViewModel =
+                        new ViewModelProvider(MainActivity.MAIN_ACTIVITY_INSTANCE).get(MainViewModel.class);
+                try {
+                    mainViewModel.setEdtTitle(response.getJSONObject(0).getString("title"));
+                    mainViewModel.setEdtContentText(response.getJSONObject(0).getString("content"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override

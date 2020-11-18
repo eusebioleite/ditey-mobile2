@@ -53,6 +53,7 @@ public class RegisterFragment extends Fragment {
                                 }
                             })
                             .create().show();
+                    btnRegister.setEnabled(true);
                 }
             }
         });
@@ -62,7 +63,7 @@ public class RegisterFragment extends Fragment {
                 String username=edtUsername.getText().toString(), email=edtEmail.getText().toString(),
                         password=edtPassword.getText().toString();
                 VolleySingleton.getInstance().requestRegister(username,email,password);
-                navController.navigate(R.id.action_nav_register_to_nav_login);
+                btnRegister.setEnabled(false);
             }
         });
 
