@@ -1,12 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.e.diteyb.MainActivity">
+    tools:context="com.e.diteyb.MainActivity"><!--
     <item
         android:id="@+id/action_settings"
+        android:icon="@drawable/ic_baseline_settings_24"
         android:orderInCategory="100"
-        android:title="Configurações"
-        app:showAsAction="never" />
+        android:title="@string/action_settings_item"
+        android:contentDescription="@string/action_settings_description"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_login"
         android:orderInCategory="100"
@@ -21,5 +23,5 @@
     android:id="@+id/action_voice_commands"
     android:orderInCategory="100"
     android:title="Comandos de Voz"
-    app:showAsAction="never" />
+    app:showAsAction="never" />-->
 </menu>

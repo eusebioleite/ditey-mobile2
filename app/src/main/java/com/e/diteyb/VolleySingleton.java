@@ -1,7 +1,10 @@
 package com.e.diteyb;
 import android.app.Application;
 import android.util.Log;
-import android.widget.Toast;
+
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -11,6 +14,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.e.diteyb.ui.login.LoginViewModel;
+import com.e.diteyb.ui.register.RegisterViewModel;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +26,8 @@ import java.util.Map;
 public class VolleySingleton extends Application {
     private RequestQueue mRequestQueue;
     public static boolean LOGADO = false;
-    private String key;
+    public static String USER_NAME="Example", USER_EMAIL="example@example.com",PP_FIRST_LETTER="E";
+    public static String BEARER_KEY;
     private final String
             urlModifyText="https://ditey-api-deploy.herokuapp.com/api/texts/",
             urlCreateText="https://ditey-api-deploy.herokuapp.com/api/texts",
@@ -59,17 +66,21 @@ public class VolleySingleton extends Application {
             @Override
             public void onResponse(JSONObject response) {
                 Log.d("response ", response.toString());
+                NavController navController =
+                        Navigation.findNavController(MainActivity.MAIN_ACTIVITY_INSTANCE, R.id.nav_host_fragment);
+                navController.navigate(R.id.action_nav_register_to_nav_main);
                 try {
-                    key = response.getString("accessToken");
-                    Toast.makeText(getApplicationContext(), "Registrado com sucesso", Toast.LENGTH_SHORT).show();
+                    BEARER_KEY = response.getString("accessToken");
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Falha ao se registrar", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                RegisterViewModel registerViewModel =
+                        new ViewModelProvider(MainActivity.MAIN_ACTIVITY_INSTANCE).get(RegisterViewModel.class);
+                registerViewModel.isWrong(true);
                 error.printStackTrace();
             }
         });
@@ -89,7 +100,7 @@ public class VolleySingleton extends Application {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("Authorization", "Bearer "+ key);
+                params.put("Authorization", "Bearer "+ BEARER_KEY);
                 return params;
             }
         };
@@ -113,7 +124,7 @@ public class VolleySingleton extends Application {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("Authorization", "Bearer "+ key);
+                params.put("Authorization", "Bearer "+ BEARER_KEY);
                 return params;
             }
         };
@@ -144,7 +155,7 @@ public class VolleySingleton extends Application {
         @Override
         public Map<String, String> getHeaders() throws AuthFailureError {
             Map<String, String> params = new HashMap<String, String>();
-            params.put("Authorization", "Bearer "+ key);
+            params.put("Authorization", "Bearer "+ BEARER_KEY);
             return params;
         }
     };
@@ -163,9 +174,15 @@ public class VolleySingleton extends Application {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    Log.d("response: ",response.toString());
+                    Log.d("response: ", response.toString());
                     LOGADO = true;
-                    key = response.getString("accessToken");
+                    USER_NAME = response.getString("name");
+                    USER_EMAIL = response.getString("email");
+                    PP_FIRST_LETTER = String.valueOf(USER_NAME.charAt(0));
+                    BEARER_KEY = response.getString("accessToken");
+                    NavController navController =
+                            Navigation.findNavController(MainActivity.MAIN_ACTIVITY_INSTANCE, R.id.nav_host_fragment);
+                    navController.navigate(R.id.nav_main);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -173,7 +190,11 @@ public class VolleySingleton extends Application {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                LoginViewModel loginViewModel =
+                        new ViewModelProvider(MainActivity.MAIN_ACTIVITY_INSTANCE).get(LoginViewModel.class);
+                loginViewModel.isWrong(true);
                 error.printStackTrace();
+                Log.d("error ", error.getStackTrace().toString());
             }
         });
         addToRequestQueue(loginRequest);

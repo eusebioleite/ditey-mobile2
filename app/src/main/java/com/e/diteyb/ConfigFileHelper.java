@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class ConfigFileHelper{
-    public static String CONFIG="{\"id\":0,\"title\":\"error\",\"content\":\"error\"}";
     public JSONObject testJson;
     FileReader fileReader = null;
     FileWriter fileWriter = null;

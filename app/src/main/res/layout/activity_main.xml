@@ -1,88 +1,349 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:openDrawer="start">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <include
+        layout="@layout/app_bar_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent" />
 
-        <ImageView
-            android:id="@+id/shape"
-            android:layout_width="133dp"
-            android:layout_height="70dp"
-            android:scaleType="fitStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/shape_play_stop" />
-
-        <ImageButton
-            android:id="@+id/play_button"
-            android:layout_width="55dp"
-            android:layout_height="46dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginRight="60dp"
-            android:background="#00FFFFFF"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="@+id/shape"
-            app:layout_constraintEnd_toEndOf="@+id/shape"
-            app:layout_constraintStart_toStartOf="@+id/shape"
-            app:layout_constraintTop_toTopOf="@+id/shape"
-            app:srcCompat="@drawable/ic_play" />
-
-        <ImageButton
-            android:id="@+id/stop_button"
-            android:layout_width="55dp"
-            android:layout_height="46dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="60dp"
-            android:background="#00FFFFFF"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="@+id/shape"
-            app:layout_constraintEnd_toEndOf="@+id/shape"
-            app:layout_constraintStart_toStartOf="@+id/shape"
-            app:layout_constraintTop_toTopOf="@+id/shape"
-            app:srcCompat="@drawable/ic_stop" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <EditText
-        android:id="@+id/edtMainTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_maintitle"
-        android:breakStrategy="simple"
-        android:ems="10"
-        android:fontFamily="@font/montserrat_bold"
-        android:hint="Seu título aqui..."
-        android:inputType="textPersonName"
-        android:textColor="@color/colorAccent"
-        android:textColorHint="@color/colorAccent"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/mainEditText"
-        android:layout_width="match_parent"
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:autofillHints="Digite seu texto aqui..."
-        android:background="@drawable/shape_mainedt"
-        android:ems="10"
-        android:fontFamily="sans-serif-light"
-        android:foregroundGravity="top"
-        android:gravity="start|top"
-        android:hint="Digite seu texto aqui..."
-        android:inputType="textMultiLine"
-        android:textColorHint="@color/colorAccent"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_gravity="start"
+        android:background="#242424"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/menu_main">
 
-</LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:isScrollContainer="false">
+
+            <ImageButton
+                android:id="@+id/toggleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="104dp"
+                android:layout_marginEnd="16dp"
+                android:background="#00FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+
+            <LinearLayout
+                android:id="@+id/textbox_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:fitsSystemWindows="true"
+                android:isScrollContainer="false"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toggleButton">
+
+                <TextView
+                    android:id="@+id/textbox_container_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/shape_textbox"
+                    android:fitsSystemWindows="true"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Meus Textos:"
+                    android:textColor="#E0E0E0"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:id="@+id/textbox_full1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/shape_textbox"
+                    android:fitsSystemWindows="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textbox_title1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Untitled"
+                        android:textColor="#e0e0e0" />
+
+                    <Button
+                        android:id="@+id/textbox1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="#00ffffff"
+                        android:ems="3"
+                        android:fontFamily="@font/montserrat_light"
+                        android:gravity="start"
+                        android:hint="Enter your text here..."
+                        android:maxEms="3"
+                        android:maxLines="5"
+                        android:textAllCaps="false"
+                        android:textColor="#e0e0e0"
+                        android:textColorHint="#E0E0E0" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/textbox_full2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/shape_textbox"
+                    android:fitsSystemWindows="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textbox_title2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Untitled"
+                        android:textColor="#e0e0e0" />
+
+                    <Button
+                        android:id="@+id/textbox2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="#00ffffff"
+                        android:ems="3"
+                        android:fontFamily="@font/montserrat_light"
+                        android:gravity="start"
+                        android:hint="Enter your text here..."
+                        android:maxEms="3"
+                        android:maxLines="5"
+                        android:textAllCaps="false"
+                        android:textColor="#e0e0e0"
+                        android:textColorHint="#E0E0E0" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/textbox_full3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/shape_textbox"
+                    android:fitsSystemWindows="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textbox_title3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Untitled"
+                        android:textColor="#e0e0e0" />
+
+                    <Button
+                        android:id="@+id/textbox3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="#00ffffff"
+                        android:ems="3"
+                        android:fontFamily="@font/montserrat_light"
+                        android:gravity="start"
+                        android:hint="Enter your text here..."
+                        android:maxEms="3"
+                        android:maxLines="5"
+                        android:textAllCaps="false"
+                        android:textColor="#e0e0e0"
+                        android:textColorHint="#E0E0E0" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/textbox_full4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/shape_textbox"
+                    android:fitsSystemWindows="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textbox_title4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Untitled"
+                        android:textColor="#e0e0e0" />
+
+                    <Button
+                        android:id="@+id/textbox4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="#00ffffff"
+                        android:ems="3"
+                        android:fontFamily="@font/montserrat_light"
+                        android:gravity="start"
+                        android:hint="Enter your text here..."
+                        android:maxEms="3"
+                        android:maxLines="5"
+                        android:textAllCaps="false"
+                        android:textColor="#e0e0e0"
+                        android:textColorHint="#E0E0E0" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/textbox_full5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="15"
+                    android:background="@drawable/shape_textbox"
+                    android:fitsSystemWindows="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textbox_title5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Untitled"
+                        android:textColor="#e0e0e0" />
+
+                    <Button
+                        android:id="@+id/textbox5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:background="#00ffffff"
+                        android:ems="3"
+                        android:fontFamily="@font/montserrat_light"
+                        android:gravity="start"
+                        android:hint="Enter your text here..."
+                        android:maxEms="3"
+                        android:maxLines="5"
+                        android:textAllCaps="false"
+                        android:textColor="#e0e0e0"
+                        android:textColorHint="#E0E0E0" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/drawer_login"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="25dp"
+                android:background="#00C00000"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center|start"
+                android:isScrollContainer="false"
+                android:text="Entrar na conta"
+                android:textAllCaps="false"
+                android:textColor="#e0e0e0"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
+
+            <ImageView
+                android:id="@+id/buttonIcon"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="35dp"
+                android:isScrollContainer="false"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/drawer_login"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toggleButton"
+                app:srcCompat="@drawable/ic_baseline_person_24" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/pp_round_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="29dp"
+                android:layout_marginEnd="210dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/pp_shape"
+                app:layout_constraintBottom_toTopOf="@+id/toggleButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/pp_first_letter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/montserrat_light"
+                    android:foregroundGravity="center"
+                    android:gravity="center"
+                    android:text="E"
+                    android:textAllCaps="true"
+                    android:textColor="#E0E0E0"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_conversion_absoluteHeight="60dp"
+                    tools:layout_conversion_absoluteWidth="60dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/toggleButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pp_round_container">
+
+                <TextView
+                    android:id="@+id/drawer_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Name"
+                    android:textColor="#E0E0E0"
+                    android:textSize="18sp"
+                    tools:layout_editor_absoluteX="11dp"
+                    tools:layout_editor_absoluteY="101dp" />
+
+                <TextView
+                    android:id="@+id/drawer_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_light"
+                    android:text="example@email.com"
+                    android:textColor="#C9C9C9"
+                    tools:layout_editor_absoluteX="9dp"
+                    tools:layout_editor_absoluteY="124dp" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

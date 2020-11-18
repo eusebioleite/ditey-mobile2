@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_login">
+    <fragment
+        android:id="@+id/nav_main"
+        android:name="com.e.diteyb.ui.main.MainFragment"
+        android:label="Main fragment">
+        <action
+            android:id="@+id/action_nav_main_to_nav_settings"
+            app:destination="@id/nav_settings" />
+        <action
+            android:id="@+id/action_nav_main_to_nav_login"
+            app:destination="@id/nav_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.e.diteyb.ui.settings.SettingsFragment"
+        android:label="Settings fragment" >
+        <action
+            android:id="@+id/action_nav_settings_to_nav_login"
+            app:destination="@id/nav_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.e.diteyb.ui.login.LoginFragment"
+        android:label="Login fragment">
+        <action
+            android:id="@+id/action_nav_login_to_nav_register"
+            app:destination="@id/nav_register" />
+        <action
+            android:id="@+id/action_nav_login_to_nav_main"
+            app:destination="@id/nav_main" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.e.diteyb.ui.register.RegisterFragment"
+        android:label="Register fragment">
+        <action
+            android:id="@+id/action_nav_register_to_nav_login"
+            app:destination="@id/nav_login" />
+        <action
+            android:id="@+id/action_nav_register_to_nav_main"
+            app:destination="@id/nav_main" />
+    </fragment>
+</navigation>

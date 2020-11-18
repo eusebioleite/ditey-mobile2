@@ -8,7 +8,7 @@
     <application
         android:name=".VolleySingleton"
         android:allowBackup="true"
-        android:icon="@drawable/ditey_logo_dark"
+        android:icon="@mipmap/ic_launcher_square"
         android:label="Ditey"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -28,22 +28,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SettingsActivity"
-            android:label="Configurações"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SavedTextsActivity"
-            android:label="Textos Salvos"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".LoginActivity"
-            android:label="Login"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".RegisterActivity"
-            android:label="Registrar"
-            android:theme="@style/AppTheme" />
     </application>
-
 </manifest>

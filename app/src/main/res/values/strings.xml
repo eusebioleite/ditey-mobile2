@@ -6,7 +6,14 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="title_main">Ditey</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="action_settings_item">Configurações</string>
+    <string name="action_settings_description">Settings action button</string>
+    <string name="digite_seu_t_tulo_aqui">Digite seu título aqui...</string>
+    <string name="digite_seu_texto_aqui">Digite seu texto aqui...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

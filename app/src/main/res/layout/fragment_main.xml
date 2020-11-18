@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fragment_main_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#272727">
+
+    <EditText
+        android:id="@+id/content_box"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="4dp"
+        android:autofillHints="Digite seu texto aqui..."
+        android:background="#00FFFFFF"
+        android:breakStrategy="high_quality"
+        android:ems="10"
+        android:fontFamily="sans-serif-light"
+        android:foregroundGravity="top"
+        android:gravity="start"
+        android:hint="@string/digite_seu_texto_aqui"
+        android:inputType="textMultiLine"
+        android:textColorHighlight="@color/colorAccent"
+        android:textColorHint="#9e9e9e"
+        android:textColorLink="#e0e0e0"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_box" />
+
+    <EditText
+        android:id="@+id/title_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:background="#00FFFFFF"
+        android:breakStrategy="high_quality"
+        android:ems="10"
+        android:fontFamily="@font/montserrat_bold"
+        android:hint="@string/digite_seu_t_tulo_aqui"
+        android:inputType="textPersonName"
+        android:textColor="#e0e0e0"
+        android:textColorHighlight="@color/colorAccent"
+        android:textColorHint="#9e9e9e"
+        android:textSize="20sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
