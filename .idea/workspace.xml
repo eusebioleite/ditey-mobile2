@@ -11,15 +11,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2fdc3e8-e7b6-441b-a15e-9cfd8809673d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_pause_circle_filled_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/e/diteyb/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/e/diteyb/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_menu_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_menu_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_play_circle_filled_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_play_circle_filled_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_settings_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_settings_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_stop_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_stop_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/app_bar_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="ec529b8a" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -284,28 +299,28 @@
     </state>
     <state x="-903" y="122" key="FileChooserDialogImpl/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1604968885033" />
     <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1600373875583" />
-    <state width="1348" height="615" key="GridCell.Tab.0.bottom" timestamp="1605673567955">
+    <state width="1348" height="615" key="GridCell.Tab.0.bottom" timestamp="1606000308834">
       <screen x="-1366" y="0" width="1366" height="738" />
     </state>
-    <state width="1348" height="615" key="GridCell.Tab.0.bottom/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1605673567955" />
+    <state width="1348" height="615" key="GridCell.Tab.0.bottom/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1606000308834" />
     <state width="1366" height="633" key="GridCell.Tab.0.bottom/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1604973619598" />
     <state width="1366" height="673" key="GridCell.Tab.0.bottom/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1600882036026" />
-    <state width="1348" height="615" key="GridCell.Tab.0.center" timestamp="1605673567954">
+    <state width="1348" height="615" key="GridCell.Tab.0.center" timestamp="1606000308834">
       <screen x="-1366" y="0" width="1366" height="738" />
     </state>
-    <state width="1348" height="615" key="GridCell.Tab.0.center/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1605673567954" />
+    <state width="1348" height="615" key="GridCell.Tab.0.center/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1606000308834" />
     <state width="1366" height="633" key="GridCell.Tab.0.center/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1604973619598" />
     <state width="1366" height="673" key="GridCell.Tab.0.center/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1600882036026" />
-    <state width="1348" height="615" key="GridCell.Tab.0.left" timestamp="1605673567954">
+    <state width="1348" height="615" key="GridCell.Tab.0.left" timestamp="1606000308834">
       <screen x="-1366" y="0" width="1366" height="738" />
     </state>
-    <state width="1348" height="615" key="GridCell.Tab.0.left/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1605673567954" />
+    <state width="1348" height="615" key="GridCell.Tab.0.left/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1606000308834" />
     <state width="1366" height="633" key="GridCell.Tab.0.left/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1604973619597" />
     <state width="1366" height="673" key="GridCell.Tab.0.left/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1600882036026" />
-    <state width="1348" height="615" key="GridCell.Tab.0.right" timestamp="1605673567955">
+    <state width="1348" height="615" key="GridCell.Tab.0.right" timestamp="1606000308834">
       <screen x="-1366" y="0" width="1366" height="738" />
     </state>
-    <state width="1348" height="615" key="GridCell.Tab.0.right/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1605673567955" />
+    <state width="1348" height="615" key="GridCell.Tab.0.right/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1606000308834" />
     <state width="1366" height="633" key="GridCell.Tab.0.right/0.0.1366.738/-1366.0.1366.738@0.0.1366.738" timestamp="1604973619598" />
     <state width="1366" height="673" key="GridCell.Tab.0.right/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1600882036026" />
     <state width="1360" height="690" key="GridCell.Tab.1.bottom" timestamp="1605479210274">
@@ -358,16 +373,16 @@
       <screen x="-1366" y="0" width="1366" height="738" />
     </state>
     <state x="-1195" y="36" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1603291359541" />
-    <state x="35" y="0" width="1051" height="713" maximized="true" key="dock-window-1" timestamp="1605672449795">
+    <state x="25" y="0" width="1051" height="713" maximized="true" key="dock-window-1" timestamp="1605995390248">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="136" y="28" width="1051" height="713" maximized="true" key="dock-window-1/0.0.1366.738/-1366.0.1366.738/1366.0.1024.738@-1366.0.1366.738" timestamp="1605062990456" />
-    <state x="35" y="0" width="1051" height="713" maximized="true" key="dock-window-1/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1605672449795" />
+    <state x="25" y="0" width="1051" height="713" maximized="true" key="dock-window-1/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1605995390248" />
     <state x="1412" y="0" width="869" height="787" key="dock-window-1/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1604968717771" />
-    <state x="243" y="1" width="1051" height="560" maximized="true" key="dock-window-2" timestamp="1604648886427">
+    <state x="33" y="0" width="1051" height="713" maximized="true" key="dock-window-2" timestamp="1605998669516">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="243" y="1" width="1051" height="560" maximized="true" key="dock-window-2/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1604648886427" />
+    <state x="33" y="0" width="1051" height="713" maximized="true" key="dock-window-2/0.0.1366.738/-1366.0.1366.738@-1366.0.1366.738" timestamp="1605998669516" />
     <state x="0" y="0" width="1051" height="787" maximized="true" key="dock-window-3" timestamp="1604696503072">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

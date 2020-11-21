@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -43,6 +44,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class MainActivity extends AppCompatActivity {
     public static MainActivity MAIN_ACTIVITY_INSTANCE;
@@ -329,6 +333,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.toolbar_play_button:
                         ttsStop = false;
+                        btnPlay.setEnabled(false);
                         if (ContextCompat.checkSelfPermission(MainActivity.this,
                                 Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                             new Thread(t1).start();
@@ -691,7 +696,7 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
+    ExecutorService executorService = Executors.newSingleThreadExecutor();
     //Text to Speech Thread
     private Runnable t1 = new Runnable() {
         @Override
@@ -754,7 +759,10 @@ public class MainActivity extends AppCompatActivity {
                             } else {
                                 mTTS.speak(ss, TextToSpeech.QUEUE_FLUSH, null);
                             }
-                        }else break;
+                        }else{
+                            futureT1.cancel(true);
+                            btnPlay.setEnabled(true);
+                        }
                     }
                 }else {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -766,8 +774,11 @@ public class MainActivity extends AppCompatActivity {
             }catch (Exception e){
                 e.printStackTrace();
             }
+            btnPlay.setEnabled(true);
         }
     };
+    Future futureT1 = executorService.submit(t1);
+
     public Runnable runGetText = new Runnable() {
         @Override
         public void run() {
