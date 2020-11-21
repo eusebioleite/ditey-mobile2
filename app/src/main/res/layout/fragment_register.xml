@@ -112,7 +112,7 @@
             android:layout_marginBottom="16dp"
             android:background="@drawable/shape_button_login"
             android:fontFamily="@font/montserrat_medium"
-            android:text="Entrar"
+            android:text="Registrar"
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="#FFFFFF"
