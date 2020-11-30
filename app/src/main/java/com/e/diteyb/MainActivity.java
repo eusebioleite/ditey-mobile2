@@ -6,11 +6,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Menu;
@@ -36,7 +36,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.e.diteyb.ui.main.MainViewModel;
-import com.e.diteyb.ui.register.RegisterViewModel;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private int STORAGE_PERMISSION_CODE = 1;
     public static String txtboxTexts="[{\"id\":0,\"title\":\"error\",\"content\":\"error\"}]";
     public static String PATH;
-    public static int TEXT_SELECTED_ID;
+    public static int TEXT_SELECTED_ID = 0;
     public static String TITLETEXT, BOXTEXT;
     boolean ttsStop, buttonChecked,isCollapsed,firstTimeDrawer = true;
     boolean firstTime = true;
@@ -137,11 +136,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (firstTime) {
-            try {
-                TEXT_SELECTED_ID = getId(0);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+
             btnPlay.setVisibility(View.GONE);
             btnStop.setVisibility(View.GONE);
             btnSettings.setVisibility(View.GONE);
@@ -165,8 +160,6 @@ public class MainActivity extends AppCompatActivity {
                             || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("TTS", "Sua lingua não oferece suporte");
                     } else {
-                        btnPlay.setEnabled(true);
-                        btnStop.setEnabled(true);
                     }
                 } else {
                     Log.e("TTS", "Falha na Inicialização");
@@ -185,15 +178,12 @@ public class MainActivity extends AppCompatActivity {
                     snackbar.show();
                 }
 
-                if (VolleySingleton.LOGADO || firstTimeDrawer) {
+                if (VolleySingleton.LOGADO && firstTimeDrawer) {
                     try {
                         drawername.setText(VolleySingleton.USER_NAME);
                         drawerEmail.setText(VolleySingleton.USER_EMAIL);
                         ppletter.setText(VolleySingleton.PP_FIRST_LETTER);
-                        /*
-                        navname.setText(VolleySingleton.USER_NAME);
-                        navemail.setText(VolleySingleton.USER_EMAIL);
-                        ppletter.setText(VolleySingleton.PP_FIRST_LETTER);*/
+
                         final String t1 = getTitles(0), t2 = getTitles(1), t3 = getTitles(2),
                                 t4 = getTitles(3), t5 = getTitles(4);
                         final String b1 = getTexts(0), b2 = getTexts(1), b3 = getTexts(2),
@@ -209,44 +199,34 @@ public class MainActivity extends AppCompatActivity {
                         tb4.setText(t4);
                         title5.setText(t5);
                         tb5.setText(b5);
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                     firstTimeDrawer = false;
                 }
-                try {
-                    if (tb1selected) {
 
-                        TEXT_SELECTED_ID = getId(0);
+                    if (tb1selected) {
                         title1.setText(TITLETEXT);
                         tb1.setText(BOXTEXT);
                     }
                     if (tb2selected) {
-                        TEXT_SELECTED_ID = getId(1);
                         title2.setText(TITLETEXT);
                         tb2.setText(BOXTEXT);
-
                     }
                     if (tb3selected) {
-                        TEXT_SELECTED_ID = getId(2);
                         title3.setText(TITLETEXT);
                         tb3.setText(BOXTEXT);
-
                     }
                     if (tb4selected) {
-                        TEXT_SELECTED_ID = getId(3);
                         title4.setText(TITLETEXT);
                         tb4.setText(BOXTEXT);
-
                     }
                     if (tb5selected) {
-                        TEXT_SELECTED_ID = getId(4);
                         title5.setText(TITLETEXT);
                         tb5.setText(BOXTEXT);
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+
             }
 
             @Override
@@ -333,15 +313,22 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.toolbar_play_button:
                         ttsStop = false;
-                        btnPlay.setEnabled(false);
                         if (ContextCompat.checkSelfPermission(MainActivity.this,
                                 Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                            new Thread(t1).start();
+                            if (mTTS.isSpeaking()) {
+                            } else {
+                                new Thread(t1).start();
+                            }
                         } else {
                             requestStoragePermission();
                         }
                         break;
                     case R.id.textbox1:
+                        try {
+                            TEXT_SELECTED_ID = getId(0);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                         if (!VolleySingleton.LOGADO) {
                             drawer.close();
                             new AlertDialog.Builder(MainActivity.this)
@@ -355,7 +342,6 @@ public class MainActivity extends AppCompatActivity {
                                     })
                                     .create().show();
                         } else {
-
                             tb1selected = true;
                             buttonChecked = true;
                             if (tb2selected || tb3selected || tb4selected || tb5selected) {
@@ -364,12 +350,12 @@ public class MainActivity extends AppCompatActivity {
                                 tb4selected = false;
                                 tb5selected = false;
                             }
-                            if (tb1.getText() != null || title1.getText() != null) {
-                                String title = title1.getText().toString(),
-                                        content = tb1.getText().toString();
-                                mainViewModel.setEdtContentText(content);
-                                mainViewModel.setEdtTitle(title);
-                            }
+                                    if (tb1.getText() != null || title1.getText() != null) {
+                                        String title = title1.getText().toString(),
+                                                content = tb1.getText().toString();
+                                        mainViewModel.setEdtContentText(content);
+                                        mainViewModel.setEdtTitle(title);
+                                    }
                             containerTitle.setBackgroundResource(R.drawable.shape_textbox_selected);
                             fulltb1.setBackgroundResource(R.drawable.shape_textbox_selected);
                             title1.setTextColor(Color.parseColor("#6A42F4"));
@@ -402,6 +388,11 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
                     case R.id.textbox2:
+                        try {
+                            TEXT_SELECTED_ID = getId(1);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                         if (!VolleySingleton.LOGADO) {
                             drawer.close();
                             new AlertDialog.Builder(MainActivity.this)
@@ -424,12 +415,14 @@ public class MainActivity extends AppCompatActivity {
                                 tb4selected = false;
                                 tb5selected = false;
                             }
-                            if (tb2.getText() != null || title2.getText() != null) {
-                                String title = title2.getText().toString(),
-                                        content = tb2.getText().toString();
-                                mainViewModel.setEdtContentText(content);
-                                mainViewModel.setEdtTitle(title);
-                            }
+
+                                    if (tb2.getText() != null || title2.getText() != null) {
+                                        String title = title2.getText().toString(),
+                                                content = tb2.getText().toString();
+                                        mainViewModel.setEdtContentText(content);
+                                        mainViewModel.setEdtTitle(title);
+                                    }
+
                             fulltb1.setBackgroundResource(R.drawable.shape_textbox_selected);
                             fulltb2.setBackgroundResource(R.drawable.shape_textbox_selected);
                             title2.setTextColor(Color.parseColor("#6A42F4"));
@@ -462,6 +455,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.textbox3:
+                        try {
+                            TEXT_SELECTED_ID = getId(2);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                         if (!VolleySingleton.LOGADO) {
                             drawer.close();
                             new AlertDialog.Builder(MainActivity.this)
@@ -484,12 +482,14 @@ public class MainActivity extends AppCompatActivity {
                                 tb4selected = false;
                                 tb5selected = false;
                             }
-                            if (tb3.getText() != null || title3.getText() != null) {
-                                String title = title3.getText().toString(),
-                                        content = tb3.getText().toString();
-                                mainViewModel.setEdtContentText(content);
-                                mainViewModel.setEdtTitle(title);
-                            }
+
+                                    if (tb3.getText() != null || title3.getText() != null) {
+                                        String title = title3.getText().toString(),
+                                                content = tb3.getText().toString();
+                                        mainViewModel.setEdtContentText(content);
+                                        mainViewModel.setEdtTitle(title);
+                                    }
+
                             fulltb2.setBackgroundResource(R.drawable.shape_textbox_selected);
                             fulltb3.setBackgroundResource(R.drawable.shape_textbox_selected);
                             title3.setTextColor(Color.parseColor("#6A42F4"));
@@ -523,6 +523,11 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
                     case R.id.textbox4:
+                        try {
+                            TEXT_SELECTED_ID = getId(3);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                         if (!VolleySingleton.LOGADO) {
                             drawer.close();
                             new AlertDialog.Builder(MainActivity.this)
@@ -545,12 +550,15 @@ public class MainActivity extends AppCompatActivity {
                                 tb1selected = false;
                                 tb5selected = false;
                             }
-                            if (tb4.getText() != null || title4.getText() != null) {
-                                String title = title4.getText().toString(),
-                                        content = tb4.getText().toString();
-                                mainViewModel.setEdtContentText(content);
-                                mainViewModel.setEdtTitle(title);
-                            }
+
+
+                                    if (tb4.getText() != null || title4.getText() != null) {
+                                        String title = title4.getText().toString(),
+                                                content = tb4.getText().toString();
+                                        mainViewModel.setEdtContentText(content);
+                                        mainViewModel.setEdtTitle(title);
+                                    }
+
                             fulltb3.setBackgroundResource(R.drawable.shape_textbox_selected);
                             fulltb4.setBackgroundResource(R.drawable.shape_textbox_selected);
                             title4.setTextColor(Color.parseColor("#6A42F4"));
@@ -583,6 +591,11 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
                     case R.id.textbox5:
+                        try {
+                            TEXT_SELECTED_ID = getId(4);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                         if (!VolleySingleton.LOGADO) {
                             drawer.close();
                             new AlertDialog.Builder(MainActivity.this)
@@ -604,12 +617,15 @@ public class MainActivity extends AppCompatActivity {
                                 tb3selected = false;
                                 tb4selected = false;
                             }
-                            if (tb5.getText() != null || title5.getText() != null) {
-                                String title = title5.getText().toString(),
-                                        content = tb5.getText().toString();
-                                mainViewModel.setEdtContentText(content);
-                                mainViewModel.setEdtTitle(title);
-                            }
+
+
+                                    if (tb5.getText() != null || title5.getText() != null) {
+                                        String title = title5.getText().toString(),
+                                                content = tb5.getText().toString();
+                                        mainViewModel.setEdtContentText(content);
+                                        mainViewModel.setEdtTitle(title);
+                                    }
+      
                             fulltb4.setBackgroundResource(R.drawable.shape_textbox_selected);
                             fulltb5.setBackgroundResource(R.drawable.shape_textbox_selected);
                             title5.setTextColor(Color.parseColor("#6A42F4"));
@@ -761,7 +777,6 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }else{
                             futureT1.cancel(true);
-                            btnPlay.setEnabled(true);
                         }
                     }
                 }else {
@@ -779,17 +794,16 @@ public class MainActivity extends AppCompatActivity {
     };
     Future futureT1 = executorService.submit(t1);
 
-    public Runnable runGetText = new Runnable() {
-        @Override
-        public void run() {
-            if (VolleySingleton.LOGADO) {
-                VolleySingleton.getInstance().requestGetTexts();
-            }
-        }
-    };
     public void loadTexts(){
         Handler handler = new Handler();
-        handler.postDelayed(runGetText, 2000);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (VolleySingleton.LOGADO) {
+                    VolleySingleton.getInstance().requestGetTexts();
+                }
+            }
+        }, 2000);
     }
 
     @Override
@@ -800,7 +814,7 @@ public class MainActivity extends AppCompatActivity {
             mTTS.shutdown();
         }
     }
-    private void requestStoragePermission() {
+    public void requestStoragePermission() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                 Manifest.permission.READ_EXTERNAL_STORAGE)) {
             new AlertDialog.Builder(this)
@@ -837,5 +851,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    public DrawerLayout getDrawer() {
+        return drawer;
+    }
 }

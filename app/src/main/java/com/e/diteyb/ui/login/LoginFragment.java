@@ -37,8 +37,8 @@ EditText edtEmail, edtPassword;
         edtPassword = root.findViewById(R.id.edt_register_password_frag);
         loginRegister = root.findViewById(R.id.btn_login_register_frag);
         final Snackbar snackbar = Snackbar.make(
-                MainActivity.getInstance().drawer,"Fazendo login por favor aguarde...",Snackbar.LENGTH_LONG);
-        LoginViewModel loginViewModel =
+                MainActivity.getInstance().drawer,"Fazendo login por favor aguarde...",Snackbar.LENGTH_SHORT);
+        final LoginViewModel loginViewModel =
                 new ViewModelProvider(MainActivity.MAIN_ACTIVITY_INSTANCE).get(LoginViewModel.class);
         navController = Navigation.findNavController(MainActivity.MAIN_ACTIVITY_INSTANCE, R.id.nav_host_fragment);
 
@@ -57,6 +57,7 @@ EditText edtEmail, edtPassword;
                             })
                             .create().show();
                     btnLogin.setEnabled(true);
+                    loginViewModel.isWrong(false);
                 }
             }
         });

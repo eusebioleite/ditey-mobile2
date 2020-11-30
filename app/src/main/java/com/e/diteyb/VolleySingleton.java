@@ -83,6 +83,7 @@ public class VolleySingleton extends Application {
                 RegisterViewModel registerViewModel =
                         new ViewModelProvider(MainActivity.MAIN_ACTIVITY_INSTANCE).get(RegisterViewModel.class);
                 registerViewModel.isWrong(true);
+                Log.d("REGISTERREQUEST", "REGISTERREQUEST");
                 error.printStackTrace();
             }
         });
@@ -96,6 +97,7 @@ public class VolleySingleton extends Application {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.d("CREATETEXT", "CREATETEXT");
                 error.printStackTrace();
             }
         }){
@@ -121,6 +123,7 @@ public class VolleySingleton extends Application {
                 try {
                     mainViewModel.setEdtTitle(response.getJSONObject(0).getString("title"));
                     mainViewModel.setEdtContentText(response.getJSONObject(0).getString("content"));
+                    MainActivity.TEXT_SELECTED_ID = response.getJSONObject(0).getInt("id");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -128,7 +131,8 @@ public class VolleySingleton extends Application {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Log.d("LISTTEXTREQUEST", "LISTTEXTREQUEST");
+                error.printStackTrace();
             }
         }){
             @Override
@@ -154,11 +158,11 @@ public class VolleySingleton extends Application {
             new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.d("response ", response.toString());
                 }
             }, new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
+            Log.d("MODIFYREQUEST", "MODIFYREQUEST");
             error.printStackTrace();
         }
     }){
@@ -203,8 +207,8 @@ public class VolleySingleton extends Application {
                 LoginViewModel loginViewModel =
                         new ViewModelProvider(MainActivity.MAIN_ACTIVITY_INSTANCE).get(LoginViewModel.class);
                 loginViewModel.isWrong(true);
+                Log.d("LOGINREQUEST", "LOGINREQUEST");
                 error.printStackTrace();
-                Log.d("error ", error.getStackTrace().toString());
             }
         });
         addToRequestQueue(loginRequest);

@@ -67,6 +67,7 @@
                     android:background="@drawable/shape_textbox"
                     android:fitsSystemWindows="true"
                     android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center|start"
                     android:text="Meus Textos:"
                     android:textColor="#E0E0E0"
                     android:textSize="18sp" />

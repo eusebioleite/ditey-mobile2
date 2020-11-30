@@ -37,7 +37,7 @@ public class RegisterFragment extends Fragment {
         edtPassword = root.findViewById(R.id.edt_register_password_frag);
         btnRegisterLogin = root.findViewById(R.id.btn_register_login_frag);
         navController = Navigation.findNavController(MainActivity.MAIN_ACTIVITY_INSTANCE, R.id.nav_host_fragment);
-        RegisterViewModel registerViewModel =
+        final RegisterViewModel registerViewModel =
                 new ViewModelProvider(MainActivity.MAIN_ACTIVITY_INSTANCE).get(RegisterViewModel.class);
         registerViewModel.getRegisterState().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
             @Override
@@ -54,6 +54,7 @@ public class RegisterFragment extends Fragment {
                             })
                             .create().show();
                     btnRegister.setEnabled(true);
+                    registerViewModel.isWrong(false);
                 }
             }
         });
